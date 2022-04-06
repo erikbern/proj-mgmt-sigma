@@ -36,7 +36,7 @@ def set_xscale():
 
 
 # Plot CDFs
-pyplot.figure(figsize=(12, 8))
+pyplot.figure(figsize=(12, 6))
 for n, sigma, ts, cs in get_data():
     pyplot.plot(ts, cs, label="$ \sigma = %.1f $" % sigma)
     for t in [.5, 1, 2, 4]:
@@ -50,7 +50,7 @@ pyplot.savefig("cdf.png")
 
 
 # Plot conditional wait time
-pyplot.figure(figsize=(12, 8))
+pyplot.figure(figsize=(12, 6))
 data = list(get_data([0.6, 1.2]))
 for j, hatch, (n, sigma, ts, cs) in zip([0, 1], ["/", "\\"], data):
     lo_qs = cs + (1 - cs) * 0.25
@@ -69,7 +69,7 @@ pyplot.savefig("additional_time.png")
 
 
 # Plot hazard ratios
-pyplot.figure(figsize=(12, 8))
+pyplot.figure(figsize=(12, 6))
 for n, sigma, ts, cs in get_data():
     hs = numpy.zeros(n)
     ln_Ss = numpy.log(1 - cs)
@@ -93,7 +93,7 @@ def get_conditional_roi(ts, cs):
 
 
 # Plot conditional ROIs
-pyplot.figure(figsize=(12, 8))
+pyplot.figure(figsize=(12, 6))
 for n, sigma, ts, cs in get_data():
     vs = get_conditional_roi(ts, cs)
 
@@ -109,7 +109,7 @@ pyplot.title("Marginal ROI compared to initial ROI, as project goes on")
 pyplot.savefig("marginal_roi.png")
 
 # Plot CDF vs time, but mark the point where we give up
-pyplot.figure(figsize=(12, 8))
+pyplot.figure(figsize=(12, 6))
 for n, sigma, ts, cs in get_data():
     vs = get_conditional_roi(ts, cs)
 
